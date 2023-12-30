@@ -8,7 +8,7 @@ source ./dl_host_func.sh
 # ----------------------------执行---------------------------- #
 
 # 加速地址列表文件
-r_file='./r.txt'
+r_file='r.txt'
 
 # 目录地址
 tf_addrs='521xueweihan/GitHub520/main/hosts'
@@ -17,16 +17,14 @@ tf_addrs='521xueweihan/GitHub520/main/hosts'
 function dl_r(){
 
 	# 读取加速文件获取加速地址
-	readaddrs $r_file
-	r_addrs=$0
+	r_str=$(addrs_reader $r_file)
 	
 	# 下载
-	download_replace_prefix $r_addrs $tf_addrs
+	download_replace_prefix $r_str $tf_addrs
 }
 
 
-
-# -----------------------测试----------------------- #
+# -----------------------执行----------------------- #
 
 dl_r
 
