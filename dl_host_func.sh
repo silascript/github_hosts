@@ -31,7 +31,7 @@ function download_core(){
 function fix_addrs_str(){
 	
 	# 原始字符
-	s_str=$1
+	local s_str=$1
 
 	# echo -e "\e[96m开始修正地址 $s_str \e[96m...\n \e[0m"
 	# echo -e "$s_str \n"
@@ -61,7 +61,7 @@ function fix_addrs_str(){
 function addrs_reader(){
 
 	# 地址文件名
-	addrs_file=$1
+	local addrs_file=$1
 
 	# 跳过空行及以#开头的行
 	# 并读且只读一行
@@ -86,21 +86,21 @@ function download_replace_prefix(){
 	# github 的raw地址前缀
 	# raw_prefix_adds='https://raw.githubusercontent.com/'
 	# raw_prefix_addrs='https://raw.staticdn.net/'
-	raw_prefix_addrs=$1
+	local raw_prefix_addrs=$1
 
 	# 处理加速地址字符串
 	# 无论这个地址前缀字符串是从读取而来还是直接传参而来
 	# 都进行地址字符串处理函数 fix_addrs_str() 处理后才能继续使用
-	raw_prefix_addrs=$(fix_addrs_str $raw_prefix_addrs)
+	local raw_prefix_addrs=$(fix_addrs_str $raw_prefix_addrs)
 	# raw_prefix_adds=$?
 	# echo $raw_prefix_addrs
 
 	# 无前缀的目标地址
 	# tfile_noprefix_addrs='521xueweihan/GitHub520/main/hosts'
-	tfile_noprefix_addrs=$2
+	local tfile_noprefix_addrs=$2
 
 	# 最终目标地址
-	tcdn_full_addrs=$raw_prefix_addrs$tfile_noprefix_addrs
+	local tcdn_full_addrs=$raw_prefix_addrs$tfile_noprefix_addrs
 
 	# echo $tcdn_full_addrs
 	
@@ -113,18 +113,18 @@ function download_replace_prefix(){
 function download_add_prefix(){
 
 	# 加速代理地址
-	pre_addrs=$1
+	local pre_addrs=$1
 
 	# 处理加速地址字符串
 	# 无论这个地址前缀字符串是从读取而来还是直接传参而来
 	# 都进行地址字符串处理函数 fix_addrs_str() 处理后才能继续使用
-	pre_addrs=$(fix_addrs_str $pre_addrs)
+	local pre_addrs=$(fix_addrs_str $pre_addrs)
 
 	# 目标完整地址
-	target_full_addrs=$2
+	local target_full_addrs=$2
 	
 	# 直接拼接
-	pt_full_addrs=$pre_addrs$target_full_addrs
+	local pt_full_addrs=$pre_addrs$target_full_addrs
 
 	# 调用下载核心函数
 	download_core $pt_full_addrs

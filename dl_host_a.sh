@@ -17,7 +17,7 @@ tf_addrs='https://raw.githubusercontent.com/521xueweihan/GitHub520/main/hosts'
 function dl_a(){
 
 	# 读取加速文件获取加速地址
-	a_str=$(addrs_reader $a_file)
+	local a_str=$(addrs_reader $a_file)
 	
 	# 下载
 	download_add_prefix $a_str $tf_addrs

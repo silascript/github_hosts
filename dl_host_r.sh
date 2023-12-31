@@ -17,7 +17,7 @@ tf_addrs='521xueweihan/GitHub520/main/hosts'
 function dl_r(){
 
 	# 读取加速文件获取加速地址
-	r_str=$(addrs_reader $r_file)
+	local r_str=$(addrs_reader $r_file)
 	
 	# 下载
 	download_replace_prefix $r_str $tf_addrs
