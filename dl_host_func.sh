@@ -13,7 +13,7 @@ function download_core(){
 
 	# 目标地址
 	# 由外部传来
-	tfull_addrs=$1
+	local tfull_addrs=$1
 	
 	# echo $tfull_addrs
 
@@ -37,7 +37,7 @@ function fix_addrs_str(){
 	# echo -e "$s_str \n"
 
 	# 处理
-	prefix_str="https://"
+	local prefix_str="https://"
 	if [[ "$s_str" =~ ^$prefix_str* ]];then
 		s_str=$s_str
 	else
